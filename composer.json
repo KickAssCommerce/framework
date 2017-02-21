@@ -19,6 +19,12 @@
         "squizlabs/php_codesniffer": "^2.8",
         "phpunit/phpunit": "^6.0"
     },
+    "replace": {
+        "kickasscommerce/authentication": "self.version",
+        "kickasscommerce/commerce": "self.version",
+        "kickasscommerce/moltin": "self.version",
+        "kickasscommerce/toolbox": "self.version"
+    },
     "autoload": {
         "psr-4": {
             "KickAss\\": "src/"
