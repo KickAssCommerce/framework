@@ -1,11 +1,8 @@
 {
-    "name": "kickasscommerce/kickasscommerce",
+    "name": "kickasscommerce/framework",
     "description": "A small proof of concept for Moltin",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
-    "repositories": [
-        { "type": "path", "url": "src/*" }
-    ],
     "require": {
         "symfony/serializer": "^3.2",
         "symfony/property-access": "^3.2",
@@ -24,11 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "KickAss\\Commerce\\": "src/Commerce",
-            "KickAss\\Authentication\\": "src/Authentication/src",
-            "KickAss\\Toolbox\\": "src/Toolbox/src",
-            "KickAss\\Moltin\\": "src/Moltin/src",
-            "Example\\Project\\": "app/"
+            "KickAss\\": "src/"
         }
     },
     "scripts": {
