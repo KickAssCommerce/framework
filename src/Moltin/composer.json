@@ -4,12 +4,12 @@
     "type": "kickass-bundle",
     "license": "MIT",
     "require": {
-        "kickasscommerce/authentication": "*@dev"
+        "kickasscommerce/authentication": "*"
     },
     "require-dev": {},
     "autoload": {
         "psr-4": {
-            "KickAss\\Moltin\\": "src/"
+            "KickAss\\Moltin\\": ""
         }
     }
 }

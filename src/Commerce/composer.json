@@ -1,0 +1,9 @@
+{
+    "name": "kickasscommerce/commerce",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "KickAss\\Commerce\\": ""
+        }
+    }
+}
