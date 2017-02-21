@@ -1,10 +1,10 @@
 {
     "name": "kickasscommerce/toolbox",
-    "description": "CLI toold for application maintenance",
+    "description": "CLI tool for application maintenance",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "KickAss\\Tollbox\\": "src/"
+            "KickAss\\Toolbox\\": "src/"
         }
     }
 }
