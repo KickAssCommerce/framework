@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-require 'vendor/autoload.php';
-require 'bootstrap/env.php';
+require '../../vendor/autoload.php';
+require '../../bootstrap/env.php';
 
 use Symfony\Component\Console\Application;
 
