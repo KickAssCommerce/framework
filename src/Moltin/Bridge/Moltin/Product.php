@@ -18,10 +18,10 @@ class Product implements \KickAss\Commerce\Application\ProductInterface
     }
 
     /**
-     * @param int $identifier
+     * @param mixed $identifier
      * @return array
      */
-    public function getProductItem(int $identifier)
+    public function getProductItem($identifier)
     {
         $product = MoltinProduct::Get($identifier);
         return $product['result'];
