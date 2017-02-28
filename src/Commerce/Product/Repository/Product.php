@@ -11,7 +11,15 @@ class Product implements ProductInterface
     /**
      * @var ApplicationProductInterface
      */
-    private $product;
+    private $router;
+    /**
+     * @var ApplicationProductInterface
+     */
+    private $defaultDataprovider;
+    /**
+     * @var array
+     */
+    private $dataproviders;
 
     /**
      * @var ObjectNormalizer
@@ -21,15 +29,19 @@ class Product implements ProductInterface
     /**
      * Product constructor.
      *
-     * @param ApplicationProductInterface $product
-     * @param ObjectNormalizer $normalizer
+     * @param ApplicationProductInterface $router
+     * @param ApplicationProductInterface $defaultDataprovider
+     * @param array $dataproviders
      */
     public function __construct(
-        ApplicationProductInterface $product,
-        ObjectNormalizer $normalizer
+        ApplicationProductInterface $router,
+        ApplicationProductInterface $defaultDataprovider,
+        array $dataproviders
     ) {
-        $this->product = $product;
-        $this->normalizer = $normalizer;
+        $this->router = $router;
+        $this->defaultDataprovider = $defaultDataprovider;
+        $this->dataproviders = $dataproviders;
+        $this->normalizer = new ObjectNormalizer();
     }
 
     /**
@@ -39,7 +51,7 @@ class Product implements ProductInterface
      */
     public function load($id)
     {
-        $productInfo = $this->product->getProductItem($id);
+        $productInfo = $this->defaultDataprovider->getProductItem($id);
 
         return $this->populateProductRepository($productInfo);
     }
@@ -52,7 +64,7 @@ class Product implements ProductInterface
      */
     public function loadByAttribute(string $attribute, string $value)
     {
-        $productInfo = $this->product->getProductItemByAttribute($attribute, $value);
+        $productInfo = $this->defaultDataprovider->getProductItemByAttribute($attribute, $value);
 
         return $this->populateProductRepository($productInfo);
     }
@@ -76,7 +88,7 @@ class Product implements ProductInterface
      */
     public function search(array $filters = array())
     {
-        $productInfo = $this->product->getProductList($filters);
+        $productInfo = $this->defaultDataprovider->getProductList($filters);
         $products = [];
         foreach ($productInfo as $product) {
             $products[] = $this->normalizer->denormalize($product, MapProduct::class);
